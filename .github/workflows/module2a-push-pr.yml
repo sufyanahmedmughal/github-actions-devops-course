@@ -1,0 +1,19 @@
+name: Module 2A - Push and PR Trigger
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Event Info
+        run: |
+          echo "Triggered by event: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
