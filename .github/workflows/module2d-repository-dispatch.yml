@@ -1,0 +1,12 @@
+name: Module 2D - Repository Dispatch
+
+on:
+  repository_dispatch:
+    types: [custom-webhook]
+
+jobs:
+  webhook-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webhook Execution
+        run: echo "Repository dispatch triggered successfully from external API!"
