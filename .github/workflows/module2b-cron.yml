@@ -2,7 +2,7 @@ name: Module 2B - Scheduled Cron Workflow
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Har 5 minute baad chalega
+    - cron: '*/5 * * * *'  
 
 jobs:
   cron-job:
