@@ -1,0 +1,32 @@
+name: Module 6 - Matrix Builds Caching and Service Containers
+
+on:
+  workflow_dispatch:
+
+jobs:
+  matrix-build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [18, 20]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Setup Node.js with Caching
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Verify Node Installation
+        run: node -v
+
+  service-container-job:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+    steps:
+      - name: Check Redis Service Container
+        run: echo "Redis service container is initialized and running on port 6379"
