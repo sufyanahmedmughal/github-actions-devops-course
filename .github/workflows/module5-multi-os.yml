@@ -1,0 +1,17 @@
+name: Module 5 - Multi-OS Runners
+
+on:
+  workflow_dispatch:
+
+jobs:
+  windows-job:
+    runs-on: windows-latest
+    steps:
+      - name: Run PowerShell Script on Windows
+        run: Get-ComputerInfo | Select-Object CsName, WindowsVersion
+
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - name: Swift Compilation Test on Mac
+        run: swift --version
