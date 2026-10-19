@@ -2,7 +2,8 @@ name: Module 2B - Scheduled Cron Workflow
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  
+    - cron: '*/5 * * * *' 
+  workflow_dispatch:
 
 jobs:
   cron-job:
