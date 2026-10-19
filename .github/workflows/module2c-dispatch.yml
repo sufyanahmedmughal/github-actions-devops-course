@@ -1,0 +1,22 @@
+name: Module 2C - Workflow Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      student_name:
+        description: 'Student Name'
+        required: true
+        default: 'Sufyan Ahmed Mughal'
+      greeting:
+        description: 'Custom Greeting'
+        required: false
+        default: 'Hello DevOps'
+
+jobs:
+  manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Inputs
+        run: |
+          echo "Student: ${{ github.event.inputs.student_name }}"
+          echo "Greeting: ${{ github.event.inputs.greeting }}"
